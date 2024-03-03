@@ -1,2 +1,2 @@
 # flask-multiple-logins
-a simple flask app with multiple logins
+A simple flask app with user roles.
