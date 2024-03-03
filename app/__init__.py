@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
 import os
 from dotenv import load_dotenv
-
+from app import pages
 
 
 load_dotenv()
@@ -20,6 +20,8 @@ def create_app():
     app = Flask(__name__)
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('URI')
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    
+    app.register_blueprint(pages.bp)
     
     db.init_app(app)
         
