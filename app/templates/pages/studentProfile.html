@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title> Hello, {{user.username}}</title>   
+{% endblock head %}
+
+{% block body %}
+<main class="d-flex flex-column justify-content-center align-items-center min-vh-100 ">
+    <p>
+        {{ user.username }}
+    </p>
+    <p>
+        {{ user.user_role}}
+    </p>
+    <a href="{{url_for('pages.logout')}}" class="btn btn-danger ">logout</a>
+</main>
+{% endblock body %}

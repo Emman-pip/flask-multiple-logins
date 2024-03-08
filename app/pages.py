@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, url_for, request, flash, redirect
 from .models import UserAccount
 from werkzeug.security import generate_password_hash, check_password_hash
 import app
+from flask_login import login_user, logout_user, login_required, current_user
 
 bp = Blueprint('pages', __name__)
 
@@ -36,3 +37,25 @@ def signup():
         flash('You successfully signed up!')
         return redirect(url_for('pages.signup'))
     return render_template('pages/signups.html')
+
+@bp.route('/signin', methods=["GET", "POST"])
+def signin():
+    if request.method == 'POST':
+        email = request.form.get("email")
+        password = request.form.get("password")
+        
+        user = UserAccount.query.filter_by(email=email).first()
+        
+        if not user or not check_password_hash(user.password, password):
+            flash("invalid credentials")
+            return redirect(url_for('pages.signin'))
+
+        login_user(user)
+        return redirect(url_for('roles.profile'))
+        
+    return render_template('pages/signin.html')
+
+@bp.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('pages.home'))
