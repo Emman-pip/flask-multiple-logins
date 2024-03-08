@@ -10,8 +10,8 @@
     <section class="hero min-vh-100 d-flex justify-content-center align-items-center flex-column ">
         <div class="title"><p class="display-1 ">Hello there</p></div>
         <div class="buttons">
-            <a class="login btn btn-info" href="#">LOGIN</a>
-            <a class="signup btn btn-info" href="#">SIGNUP</a>
+            <a class="login btn btn-info" href="{{ url_for('pages.signin')}}">LOGIN</a>
+            <a class="signup btn btn-info" href="{{ url_for('pages.signup') }}">SIGNUP</a>
         </div>
     </section>
 </main>
