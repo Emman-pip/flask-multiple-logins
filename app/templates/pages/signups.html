@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+<title>Signup</title>
+{% endblock head %}
+
+
+{% block body %}
+<main id="signup" class="min-vh-100 d-flex justify-content-center  align-items-center ">
+    <div class="form-container">
+        {% with message = get_flashed_messages() %}
+        {% if message %}
+            <div class="bg-danger rounded-2 ">{{ message[0] }}</div>
+        {% endif %}
+        {% endwith %}
+        <form action="/signup" method="POST" class="form-control">
+            <h1 class="text-center">SIGNUP</h1>
+
+            <input type="email" id="email" class="form-control" placeholder="email" name="email">
+            <input type="text" class="form-control " placeholder="username" name="username">
+            <input type="password" class="form-control " name="password" placeholder="password">
+            <select id="" class="form-control" name="role">
+                <option value="student" class="form-control " >Student</option>
+                <option value="teacher" class="form-control">Teacher</option>
+            </select>
+            <input type="submit" value="SIGNUP" class="form-control btn btn-info">
+        </form>    
+    </div>
+</main>
+{% endblock body %}
