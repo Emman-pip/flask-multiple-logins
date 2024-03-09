@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Dashboard</title>
+{% endblock head %}
+
+{% block body %}
+<main id="teacherDashboard" class="d-flex flex-column justify-content-center align-items-center ">
+    <h1>Teacher Dashboard</h1>
+    <p>this is {{ user.username }}'s dashboard</p>
+    <a href="{{ url_for('roles.profile') }}" class="btn btn-danger">go back to profile</a>
+</main>
+{% endblock body %}

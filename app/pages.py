@@ -59,3 +59,5 @@ def signin():
 def logout():
     logout_user()
     return redirect(url_for('pages.home'))
+
+# TODO: USER ROUTES VERIFICATION!!!
